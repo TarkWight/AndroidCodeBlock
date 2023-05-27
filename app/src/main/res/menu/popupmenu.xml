@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/variable"
+        android:title="Блок переменных" />
+    <item
+        android:id="@+id/assign"
+        android:title="Блок присваивания" />
+    <item
+        android:id="@+id/constif"
+        android:title="If (...) ->" />
+    <item
+        android:id="@+id/printf"
+        android:title="Вывод переменных" />
+    <item
+        android:id="@+id/scanf"
+        android:title="Ввод переменных" />
+    <item
+        android:id="@+id/constelse"
+        android:title="If (...) -> Else ->" />
+    <item
+        android:id="@+id/constwhile"
+        android:title="While (...) -> {...}"/>
+    <item
+        android:id="@+id/block_array"
+        android:title="Создать массив"/>
+</menu>

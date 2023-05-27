@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/block_while_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="1dip"
+    android:background="@drawable/layout_bg_for_while">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/block_while"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:padding="1dip"
+        android:background="@drawable/layout_bg_for_while">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:text="While"
+            android:textSize="24dp"
+            android:typeface="sans" />
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/layout_bg_while"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/select_comp"
+            android:background="@drawable/layout_bg_while"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="215dp"
+            android:text="▼"
+            android:textColor="@color/cyan"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:typeface="sans" />
+
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="250dp"
+            android:background="@drawable/layout_bg_while"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+</LinearLayout>

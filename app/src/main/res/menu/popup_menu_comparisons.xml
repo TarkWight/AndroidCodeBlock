@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/more"
+        android:title="@string/more" />
+    <item
+        android:id="@+id/less"
+        android:title="@string/less" />
+    <item
+        android:id="@+id/equally"
+        android:title="==" />
+    <item
+        android:id="@+id/notequally"
+        android:title="!=" />
+    <item
+        android:id="@+id/moreequal"
+        android:title="@string/moreequal" />
+    <item
+        android:id="@+id/lessequal"
+        android:title="@string/lessequal" />
+</menu>

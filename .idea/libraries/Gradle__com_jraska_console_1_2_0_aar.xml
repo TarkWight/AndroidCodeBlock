@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jraska:console:1.2.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c00c63a09aaffc980a7188ed8bd89c6e/transformed/console-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c00c63a09aaffc980a7188ed8bd89c6e/transformed/console-1.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c00c63a09aaffc980a7188ed8bd89c6e/transformed/console-1.2.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jraska/console/1.2.0/4247e207129d8748684628da5046662ae5c33481/console-1.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

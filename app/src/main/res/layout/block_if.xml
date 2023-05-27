@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/block_if_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_bg_for_input"
+    android:orientation="horizontal"
+    android:padding="1dip">
+
+    <RelativeLayout
+        android:id="@+id/block_if"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:background="@drawable/layout_bg"
+        android:orientation="horizontal"
+        android:padding="1dip">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:text="If"
+            android:textSize="24dp"
+            android:typeface="sans" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/layout_bg_for_if"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/select_comp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="195dp"
+            android:background="@drawable/layout_bg_for_if"
+            android:gravity="center"
+            android:text="▼"
+            android:textColor="#2F5667"
+            android:textSize="18dp"
+            android:typeface="sans" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="230dp"
+            android:background="@drawable/layout_bg_for_if"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+</LinearLayout>
