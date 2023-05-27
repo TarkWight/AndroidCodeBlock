@@ -23,14 +23,14 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
         const val WHILE_BLOCK = 2131230817
     }
 
-    val var_name_regex = "[a-zA-Z]+[a-zA-Z_]*"
+    private val varNameRegex = "[a-zA-Z]+[a-zA-Z_]*"
 
     private var variables = mutableSetOf<String>()
     private var valuesOfVariables = mutableMapOf<String, Double>()
     private var listArray = mutableMapOf<String, Array<Double>>()
     private var checkout: Boolean = true
 
-    fun start_program(listView: MutableList<View> = mutableListOf()) {
+    fun startProgram(listView: MutableList<View> = mutableListOf()) {
         listView.forEach { view ->
             implement(view)
         }
@@ -38,7 +38,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
 
     //method for ASYNCHRONOUS code execution to provide real-time console interaction
     override fun doInBackground(vararg params: Any?): Void? {
-        start_program(userCode)
+        startProgram(userCode)
         //debug()
         return null
     }
@@ -50,7 +50,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
                 val edit: EditText = view.findViewById(R.id.editText2)
                 val string: String = edit.text.toString().filter { !it.isWhitespace() }
 //                Console.writeLine("String $string")
-                val list_variables = Regex(var_name_regex).findAll(string)
+                val list_variables = Regex(varNameRegex).findAll(string)
                 list_variables.forEach { variable ->
                     if (listArray[variable.value] == null) {
 //                        Console.writeLine("variable: ${variable.value}")
@@ -64,16 +64,6 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
                 val edit2: EditText = view.findViewById(R.id.editText2)
                 val variable = edit.text.toString().filter { !it.isWhitespace() }
                 val value = edit2.text.toString().filter { !it.isWhitespace() }
-
-                /*val matchResultVariable = Regex("""[a-z]\[[^#]*\]""").find(variable)
-                val list_variables = Regex("""[a-z]\[[^#]*\]""").findAll(value)
-                list_variables.forEach { variables ->
-                    val name = Regex("""[a-z]""").find(variable)!!.value
-                    variable.replace(name, "")
-                    value = Regex("""[^#]*""").find(variable)!!.value.filter { !it.isWhitespace() }
-                    val result = calc(value)
-                    listArray[variable]?.set(result!!.toInt(), calc(value)!!)
-                }*/
 
                 var result: Double?
                 try {
@@ -102,7 +92,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
             OUTPUT_BLOCK -> {
                 val edit: EditText = view.findViewById(R.id.editText4)
                 val string: String = edit.text.toString().filter { !it.isWhitespace() }
-                val list_variables = Regex(var_name_regex).findAll(string)
+                val list_variables = Regex(varNameRegex).findAll(string)
                 list_variables.forEach { variable ->
                     Console.writeLine("${variable.value} - ${valuesOfVariables[variable.value]}")
                 }
@@ -111,7 +101,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
             INPUT_BLOCK -> {
                 val edit: EditText = view.findViewById(R.id.editText5)
                 val string: String = edit.text.toString().filter { !it.isWhitespace() }
-                val list_variables = Regex(var_name_regex).findAll(string)
+                val list_variables = Regex(varNameRegex).findAll(string)
 
                 list_variables.forEach { variable ->
                     Console.writeLine("${variable.value} - ${valuesOfVariables[variable.value]}")
@@ -299,7 +289,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
         return c == ' '
     }
 
-    private fun is_op(c: Char): Boolean {
+    private fun isOp(c: Char): Boolean {
         return (c == '+') || (c == '-') || (c == '*') || (c == '/') || (c == '%')
     }
 
@@ -307,7 +297,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
         return if (op == '+' || op == '-') 1 else if (op == '*' || op == '/' || op == '%') 2 else -1
     }
 
-    private fun process_op(st: ArrayDeque<Double>, op: Char) {
+    private fun processOp(st: ArrayDeque<Double>, op: Char) {
         val r = st.last()
         st.removeLast()
         var l: Double = 0.0
@@ -334,18 +324,18 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
                     op.addLast('(')
                 } else if (s[i] == ')') {
                     while (op.last() != '(') {
-                        process_op(st, op.last())
+                        processOp(st, op.last())
                         op.removeLast()
                     }
                     op.removeLast()
-                } else if (is_op(s[i])) {
+                } else if (isOp(s[i])) {
                     var curop: Char = s[i]
                     if (i > 0 && s[i - 1] == '-') {
                         curop = '+'
                         op.removeLast()
                     }
                     while (!op.isEmpty() && priority(op.last()) >= priority(curop)) {
-                        process_op(st, op.last())
+                        processOp(st, op.last())
                         op.removeLast()
                     }
                     op.addLast(curop)
@@ -365,7 +355,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
             i++
         }
         while (!op.isEmpty()) {
-            process_op(st, op.last())
+            processOp(st, op.last())
             op.removeLast()
         }
         return st.last()
